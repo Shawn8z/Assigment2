@@ -12,6 +12,7 @@ public class Job {
     private Location location;
     private PositionType positionType;
     private CoreCompetency coreCompetency;
+    private int emptySlots = 0;
 
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
@@ -29,6 +30,34 @@ public class Job {
         this.location = dLocation;
         this.positionType = dPositionType;
         this.coreCompetency = dCoreCompetency;
+    }
+
+
+
+    @Override
+    public String toString() {
+        String result = "\n";
+
+        String aName, aEmployer, aLocation, aPositionType, aCoreCompetency;
+        aName = this.emptyStrChecker(this.name);
+        aEmployer = this.emptyStrChecker(this.employer.toString());
+        aLocation = this.emptyStrChecker(this.location.toString());
+        aPositionType = this.emptyStrChecker(this.positionType.toString());
+        aCoreCompetency = this.emptyStrChecker(this.coreCompetency.toString());
+
+        if (emptySlots == 5) {
+            return "OOPS! This job does not seem to exist.";
+        }
+
+        result += "ID: " + this.id + "\n" +
+                "Name: " + aName + "\n" +
+                "Employer: " + aEmployer + "\n" +
+                "Location: " + aLocation + "\n" +
+                "Position Type: " + aPositionType + "\n" +
+                "Core Competency: " + aCoreCompetency + "\n" +
+                "\n";
+
+        return result;
     }
 
 
@@ -92,5 +121,14 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-
+    private String emptyStrChecker(String str) {
+        String result;
+        if (str.equals("")) {
+            result = "Data not available";
+            this.emptySlots += 1;
+        } else {
+            result = str;
+        }
+        return result;
+    }
 }
