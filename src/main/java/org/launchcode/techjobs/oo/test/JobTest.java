@@ -73,6 +73,7 @@ public class JobTest {
 
         String str = obj.toString();
         String idStr = String.valueOf(obj.getId());
+        System.out.println(str);
 
         assertTrue(str.contains("ID: " + idStr + "\n"));
         assertTrue(str.contains("Name: str\n"));
