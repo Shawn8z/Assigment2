@@ -30,6 +30,9 @@ public class PositionType {
         if (this == targetObj) {
             return true;
         }
+        if (targetObj == null) {
+            return false;
+        }
         if (!(targetObj instanceof PositionType)) {
             return false;
         }
