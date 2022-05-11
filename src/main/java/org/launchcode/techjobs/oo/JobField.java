@@ -39,11 +39,11 @@ public abstract class JobField {
         if (targetObj == null) {
             return false;
         }
-        if (!(targetObj instanceof PositionType)) {
+        if (!(targetObj instanceof JobField)) {
             return false;
         }
-        PositionType position = (PositionType) targetObj;
-        return this.getId() == position.getId();
+        JobField obj = (JobField) targetObj;
+        return this.getId() == obj.getId();
     }
 
     @Override

@@ -60,10 +60,11 @@ public class JobTest {
         Job obj = new Job("str", new Employer("ABC"), new Location("Street"),
                 new PositionType("intern"), new CoreCompetency("Persistence"));
 
+        String str = obj.toString();
         int strLength = obj.toString().length();
 
-        assertTrue(obj.toString().charAt(0) == '\n');
-        assertTrue(obj.toString().charAt(strLength - 1) == '\n');
+        assertTrue(str.charAt(0) == '\n');
+        assertTrue(str.charAt(strLength - 1) == '\n');
     }
 
     @Test
@@ -73,7 +74,6 @@ public class JobTest {
 
         String str = obj.toString();
         String idStr = String.valueOf(obj.getId());
-        System.out.println(str);
 
         assertTrue(str.contains("ID: " + idStr + "\n"));
         assertTrue(str.contains("Name: str\n"));

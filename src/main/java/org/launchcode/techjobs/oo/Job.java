@@ -37,18 +37,21 @@ public class Job {
     @Override
     public String toString() {
         String result = "\n";
-
         String aName, aEmployer, aLocation, aPositionType, aCoreCompetency;
+
+        // use helperfunction emptyStrChecker to fill in all the variables based on values in the fields
         aName = this.emptyStrChecker(this.name);
         aEmployer = this.emptyStrChecker(this.employer.toString());
         aLocation = this.emptyStrChecker(this.location.toString());
         aPositionType = this.emptyStrChecker(this.positionType.toString());
         aCoreCompetency = this.emptyStrChecker(this.coreCompetency.toString());
 
+        // if all 5 fields are "" return  'OOPS! This job does not seem to exist.'
         if (emptySlots == 5) {
             return "OOPS! This job does not seem to exist.";
         }
 
+        // put together the result string
         result += "ID: " + this.id + "\n" +
                 "Name: " + aName + "\n" +
                 "Employer: " + aEmployer + "\n" +
@@ -123,6 +126,11 @@ public class Job {
 
     private String emptyStrChecker(String str) {
         String result;
+        // if input is "" change result to 'Data not available'
+        // also increment emptySlots by 1;
+
+        // else return input as result
+
         if (str.equals("")) {
             result = "Data not available";
             this.emptySlots += 1;
